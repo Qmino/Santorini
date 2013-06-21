@@ -18,10 +18,17 @@
             <groupId>com.qmino</groupId>
             <artifactId>santorini-api</artifactId>
             <version>${project.version}</version>
-        </dependency>  
+        </dependency>
+        <!-- The core of the Spring dependency injection framework. -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- Spring context is necessary for the org.springframework.stereotype.Service tag. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -32,12 +39,18 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-spring</artifactId>
-            <version>${resteasy.version}</version>           
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson-provider</artifactId>
-            <version>${resteasy.version}</version>           
+            <version>${resteasy.version}</version>
+        </dependency>
+        <!--The Google guava library contains lots of useful utility classes.-->
+        <dependency>
+        	<groupId>com.google.guava</groupId>
+        	<artifactId>guava</artifactId>
+        	<version>14.0.1</version>
         </dependency>
     </dependencies>
 

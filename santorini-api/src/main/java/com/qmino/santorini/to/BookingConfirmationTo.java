@@ -1,7 +1,9 @@
 package com.qmino.santorini.to;
 
+import java.util.List;
+
 /**
- * No comment provided yet for this class.
+ * A booking confirmation transfer object.
  * <p/>
  * <p>
  * <i>Creation-Date</i>: 19/06/13<br>
@@ -12,4 +14,24 @@ package com.qmino.santorini.to;
  * @since SDK1.6
  */
 public class BookingConfirmationTo {
+
+    private TripSummaryTo tripSummary;
+    private List<TravelerSummaryTo> travelers;
+
+    public TripSummaryTo getTripSummary() {
+        return tripSummary;
+    }
+
+    public void setTripSummary(TripSummaryTo tripSummary) {
+        this.tripSummary = tripSummary;
+    }
+
+    public List<TravelerSummaryTo> getTravelers() {
+        return travelers;
+    }
+
+    public void setTravelers(List<TravelerSummaryTo> travelers) {
+        this.travelers = travelers;
+    }
+
 }

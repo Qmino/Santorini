@@ -3,7 +3,7 @@ package com.qmino.santorini.to;
 import java.util.List;
 
 /**
- * No comment provided yet for this class.
+ * A booking request transfer object.
  * <p/>
  * <p>
  * <i>Creation-Date</i>: 19/06/13<br>
@@ -16,7 +16,7 @@ import java.util.List;
 public class BookingRequestTo {
 
     private Long tripId;
-    private List<TravelerTo> travelers;
+    private List<TravelerSummaryTo> travelers;
 
     public Long getTripId() {
         return tripId;
@@ -26,11 +26,11 @@ public class BookingRequestTo {
         this.tripId = tripId;
     }
 
-    public List<TravelerTo> getTravelers() {
+    public List<TravelerSummaryTo> getTravelers() {
         return travelers;
     }
 
-    public void setTravelers(List<TravelerTo> travelers) {
+    public void setTravelers(List<TravelerSummaryTo> travelers) {
         this.travelers = travelers;
     }
 }

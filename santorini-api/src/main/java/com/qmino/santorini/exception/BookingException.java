@@ -1,7 +1,7 @@
 package com.qmino.santorini.exception;
 
 /**
- * No comment provided yet for this class.
+ * A booking exception.
  * <p/>
  * <p>
  * <i>Creation-Date</i>: 19/06/13<br>
@@ -11,5 +11,17 @@ package com.qmino.santorini.exception;
  * @author Peter Rigole
  * @since SDK1.6
  */
-public class BookingException {
+public class BookingException extends RuntimeException {
+
+    public BookingException() {
+    }
+
+    public BookingException(String message) {
+        super(message);
+    }
+
+    public BookingException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
 }

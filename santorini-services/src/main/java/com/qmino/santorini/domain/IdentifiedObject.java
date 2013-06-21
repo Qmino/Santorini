@@ -12,4 +12,15 @@ package com.qmino.santorini.domain;
  * @since SDK1.6
  */
 public class IdentifiedObject {
+
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }
