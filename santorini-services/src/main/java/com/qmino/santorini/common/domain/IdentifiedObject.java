@@ -1,4 +1,4 @@
-package com.qmino.santorini.domain;
+package com.qmino.santorini.common.domain;
 
 /**
  * No comment provided yet for this class.

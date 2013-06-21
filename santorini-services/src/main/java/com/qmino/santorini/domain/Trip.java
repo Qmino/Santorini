@@ -1,5 +1,7 @@
 package com.qmino.santorini.domain;
 
+import com.qmino.santorini.common.domain.IdentifiedObject;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -66,7 +68,7 @@ public class Trip extends IdentifiedObject {
         this.endDate = endDate;
     }
 
-    public Integer getAvailablePlaces() {
+    public int getAvailablePlaces() {
         return getTotalPlaces() - getBookings().size();
     }
 

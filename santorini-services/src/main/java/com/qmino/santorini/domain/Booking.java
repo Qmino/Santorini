@@ -1,5 +1,7 @@
 package com.qmino.santorini.domain;
 
+import com.qmino.santorini.common.domain.IdentifiedObject;
+
 /**
  * No comment provided yet for this class.
  * <p/>
