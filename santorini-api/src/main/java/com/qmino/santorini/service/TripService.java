@@ -30,16 +30,38 @@ import java.util.NoSuchElementException;
 @Path("/rest/trips")
 public interface TripService {
 
+    /**
+     * Retrieve all available trips.
+     *
+     * @return A list containing the summary data of all available trips.
+     * @summary Retrieve all available trips.
+     */
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     List<TripSummaryTo> getAllAvailableTrips();
 
+    /**
+     * Retrieve detailed trip information about a given trip.
+     *
+     * @param tripId The given trip ID.
+     * @return Detailed trip information about the trip with the given ID.
+     * @throws NoSuchElementException There is no trip matching the given ID.
+     * @summary Retrieve detailed trip information about a given trip.
+     */
     @GET
     @Path("/{tripId}")
     @Produces(MediaType.APPLICATION_JSON)
     TripTo getTripInfo(@PathParam("tripId") Long tripId) throws NoSuchElementException;
 
+    /**
+     * Book a trip.
+     *
+     * @param bookingRequestTo The booking information.
+     * @return The booking confirmation data.
+     * @throws BookingException The requested booking could not be established.
+     * @summary Book a trip.
+     */
     @POST
     @Path("/book")
     @Produces(MediaType.APPLICATION_JSON)

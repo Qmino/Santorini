@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-   <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.qmino</groupId>
     <artifactId>santorini-api</artifactId>
     <packaging>jar</packaging>
@@ -17,6 +17,50 @@
     miredot key: UHJvamVjdHxjb20ucW1pbm8uc2FudG9yaW5pLWFwaXwyMDE0LTEyLTMxI01Dd0NGQldJclByWmJnUE44VHdaSXFkNlI2SWlHT0p5QWhSUVhuSlpaczB4dno3WjdtRWNOU1JJQ2xwb0xBPT0=
     -->
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.qmino</groupId>
+                <artifactId>miredot-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>restdoc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <licence>
+                        UHJvamVjdHxjb20ucW1pbm8uc2FudG9yaW5pLWFwaXwyMDE0LTEyLTMxI01Dd0NGQldJclByWmJnUE44VHdaSXFkNlI2SWlHT0p5QWhSUVhuSlpaczB4dno3WjdtRWNOU1JJQ2xwb0xBPT0=
+                    </licence>
+                    <outputFormat>Html</outputFormat>
+                    <errors>
+                        <error>
+                            <httpCode>404</httpCode>
+                            <document>explicit: org.jboss.resteasy.spi.NotFoundException</document>
+                            <defaultMessage>Wanneer het gezochte element niet gevonden is.</defaultMessage>
+                        </error>
+                        <error>
+                            <httpCode>412</httpCode>
+                            <document>put,post</document>
+                            <defaultMessage>Bij een ongeldig JSON object.</defaultMessage>
+                        </error>
+                        <error>
+                            <httpCode>500</httpCode>
+                            <document>always</document>
+                            <defaultMessage>Indien een interne serverfout optreedt en de service daardoor niet kan
+                                voltooien.
+                            </defaultMessage>
+                        </error>
+                    </errors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>javax.ws.rs</groupId>
@@ -28,7 +72,7 @@
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>${jackson.version}</version>
-        </dependency>    
+        </dependency>
     </dependencies>
 
 </project>
