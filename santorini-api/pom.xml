@@ -17,6 +17,14 @@
     miredot key: UHJvamVjdHxjb20ucW1pbm8uc2FudG9yaW5pLWFwaXwyMDE0LTEyLTMxI01Dd0NGQldJclByWmJnUE44VHdaSXFkNlI2SWlHT0p5QWhSUVhuSlpaczB4dno3WjdtRWNOU1JJQ2xwb0xBPT0=
     -->
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>miredot-snapshots</id>
+            <name>MireDot Snapshots</name>
+            <url>http://nexus.qmino.com/content/repositories/miredot-snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <plugins>
             <plugin>
