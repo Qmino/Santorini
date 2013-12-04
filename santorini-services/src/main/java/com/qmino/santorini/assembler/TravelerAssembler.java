@@ -26,7 +26,6 @@ public class TravelerAssembler {
             return null;
         }
         Traveler traveler = new Traveler();
-        traveler.setId(travelerSummary.getId());
         traveler.setFirstName(travelerSummary.getFirstName());
         traveler.setLastName(travelerSummary.getLastName());
         traveler.setPassportNumber(travelerSummary.getPassportNumber());
@@ -40,7 +39,7 @@ public class TravelerAssembler {
         return traveler;
     }
 
-    private TravelerSummaryTo createTo(Traveler traveler) {
+    public TravelerSummaryTo createTo(Traveler traveler) {
         if (traveler == null) {
             return null;
         }

@@ -1,5 +1,6 @@
 package com.qmino.santorini.assembler;
 
+import com.qmino.santorini.domain.Booking;
 import com.qmino.santorini.domain.Trip;
 import com.qmino.santorini.to.TripSummaryTo;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,7 @@ import java.util.List;
 @Component
 public class TripSummaryAssembler {
 
-    public TripSummaryTo createTo(Trip trip) {
+    private TripSummaryTo createTo(Trip trip) {
         if (trip == null) {
             return null;
         }
@@ -43,5 +44,4 @@ public class TripSummaryAssembler {
         }
         return tripSummaries;
     }
-
 }

@@ -1,0 +1,75 @@
+BODY
+{
+	background-color: #55646C;
+	margin: 32px 40px;
+}
+BODY > DIV > DIV
+{
+	margin: 0px 10px 10px;
+	background-color: #B4BFC6;
+	border: 1px solid #000000;
+	padding: 3px 0px 3px 20px;
+}
+INPUT[type=text]
+{
+	background-color: #9DA4AB;  
+}
+INPUT[readonly]
+{
+    	background-color: #DEDFE0;
+}
+SELECT
+{
+	background-color: #9DA4AB;
+}
+#div_book
+{
+	height: 44px;
+	width: 300px;
+	padding: 10px 10px 10px 10px;
+}
+#div_header
+{
+	font-size: 24.2pt;
+	text-align: center;
+}
+#div_pricepaid
+{
+	height: 110px;
+}
+#div_selecttrip
+{
+	float: left;
+	margin-right: 30px;
+}
+#div_tripdetails
+{
+	overflow: hidden;
+	margin-top: 53px;
+}
+#div_traveler
+{
+	height: 400px;
+}
+#div_travelerdetails
+{
+	float: left;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+#div_confirmedbookings
+{
+	overflow: auto;
+	height: 260px;
+}
+#div_buttons
+{
+	width: 138px;
+}
+#div_confirmation
+{
+	margin: 0px 10px 10px;
+	background-color: #B4BFC6;
+	border: 1px solid #000000;
+	padding: 3px 0px 3px 20px;
+}

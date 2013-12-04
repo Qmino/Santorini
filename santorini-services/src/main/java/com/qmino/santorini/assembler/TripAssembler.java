@@ -26,6 +26,7 @@ public class TripAssembler {
             return null;
         }
         TripTo tripTo = new TripTo();
+        tripTo.setId(trip.getId());
         tripTo.setTripName(trip.getTripName());
         tripTo.setTripSummary(trip.getTripSummary());
         tripTo.setTripDescription(trip.getTripDescription());

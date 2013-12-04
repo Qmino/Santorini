@@ -19,9 +19,9 @@
 
     <pluginRepositories>
         <pluginRepository>
-            <id>miredot-snapshots</id>
-            <name>MireDot Snapshots</name>
-            <url>http://nexus.qmino.com/content/repositories/miredot-snapshots</url>
+            <id>miredot</id>
+            <name>MireDot Releases</name>
+            <url>http://nexus.qmino.com/content/repositories/miredot</url>
         </pluginRepository>
     </pluginRepositories>
 
@@ -30,40 +30,16 @@
             <plugin>
                 <groupId>com.qmino</groupId>
                 <artifactId>miredot-maven-plugin</artifactId>
-                <version>1.0</version>
+                <version>1.2.1</version>
                 <executions>
                     <execution>
-                        <id>attach-sources</id>
-                        <phase>process-classes</phase>
                         <goals>
                             <goal>restdoc</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
-                    <licence>
-                        UHJvamVjdHxjb20ucW1pbm8uc2FudG9yaW5pLWFwaXwyMDE0LTEyLTMxI01Dd0NGQldJclByWmJnUE44VHdaSXFkNlI2SWlHT0p5QWhSUVhuSlpaczB4dno3WjdtRWNOU1JJQ2xwb0xBPT0=
-                    </licence>
-                    <outputFormat>Html</outputFormat>
-                    <errors>
-                        <error>
-                            <httpCode>404</httpCode>
-                            <document>explicit: org.jboss.resteasy.spi.NotFoundException</document>
-                            <defaultMessage>Wanneer het gezochte element niet gevonden is.</defaultMessage>
-                        </error>
-                        <error>
-                            <httpCode>412</httpCode>
-                            <document>put,post</document>
-                            <defaultMessage>Bij een ongeldig JSON object.</defaultMessage>
-                        </error>
-                        <error>
-                            <httpCode>500</httpCode>
-                            <document>always</document>
-                            <defaultMessage>Indien een interne serverfout optreedt en de service daardoor niet kan
-                                voltooien.
-                            </defaultMessage>
-                        </error>
-                    </errors>
+                    <!--insert configuration here-->
                 </configuration>
             </plugin>
         </plugins>

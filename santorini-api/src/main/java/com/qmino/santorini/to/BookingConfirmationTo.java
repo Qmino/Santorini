@@ -15,23 +15,13 @@ import java.util.List;
  */
 public class BookingConfirmationTo {
 
-    private TripSummaryTo tripSummary;
-    private List<TravelerSummaryTo> travelers;
+    private List<BookingSummaryTo> bookings;
 
-    public TripSummaryTo getTripSummary() {
-        return tripSummary;
+    public List<BookingSummaryTo> getBookings() {
+        return bookings;
     }
 
-    public void setTripSummary(TripSummaryTo tripSummary) {
-        this.tripSummary = tripSummary;
+    public void setBookings(List<BookingSummaryTo> bookings) {
+        this.bookings = bookings;
     }
-
-    public List<TravelerSummaryTo> getTravelers() {
-        return travelers;
-    }
-
-    public void setTravelers(List<TravelerSummaryTo> travelers) {
-        this.travelers = travelers;
-    }
-
 }

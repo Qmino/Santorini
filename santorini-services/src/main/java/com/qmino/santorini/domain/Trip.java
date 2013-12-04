@@ -1,7 +1,8 @@
 package com.qmino.santorini.domain;
 
-import com.qmino.santorini.common.domain.IdentifiedObject;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,10 @@ import java.util.List;
  * @author Peter Rigole
  * @since SDK1.6
  */
-public class Trip extends IdentifiedObject {
+@Entity
+@Table( name = "TRIPS" )
+public class Trip {
+    private Long id;
 
     private String tripName;
     private String tripSummary;
@@ -26,8 +30,24 @@ public class Trip extends IdentifiedObject {
     private Date endDate;
     private double price;
     private int totalPlaces;
-    private List<Booking> bookings;
+    private List<Booking> bookings  = new ArrayList<Booking>(0);
 
+    public Trip() {
+        // for use by hibernate
+    }
+
+    @Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    public Long getId() {
+        return id;
+    }
+
+    private void setId(Long id) {
+        this.id = id;
+    }
+
+    @Column(nullable = false)
     public String getTripName() {
         return tripName;
     }
@@ -36,6 +56,7 @@ public class Trip extends IdentifiedObject {
         this.tripName = tripName;
     }
 
+    @Column(nullable = false)
     public String getTripSummary() {
         return tripSummary;
     }
@@ -44,6 +65,7 @@ public class Trip extends IdentifiedObject {
         this.tripSummary = tripSummary;
     }
 
+    @Column(nullable = false)
     public String getTripDescription() {
         return tripDescription;
     }
@@ -52,6 +74,8 @@ public class Trip extends IdentifiedObject {
         this.tripDescription = tripDescription;
     }
 
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     public Date getStartDate() {
         return startDate;
     }
@@ -60,6 +84,8 @@ public class Trip extends IdentifiedObject {
         this.startDate = startDate;
     }
 
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     public Date getEndDate() {
         return endDate;
     }
@@ -68,10 +94,12 @@ public class Trip extends IdentifiedObject {
         this.endDate = endDate;
     }
 
+    @Transient
     public int getAvailablePlaces() {
-        return getTotalPlaces() - getBookings().size();
+      return getTotalPlaces() - getBookings().size();
     }
 
+    @Column(columnDefinition = "NUMERIC", nullable = false)
     public double getPrice() {
         return price;
     }
@@ -80,6 +108,7 @@ public class Trip extends IdentifiedObject {
         this.price = price;
     }
 
+    @Column(nullable = false)
     public int getTotalPlaces() {
         return totalPlaces;
     }
@@ -88,11 +117,9 @@ public class Trip extends IdentifiedObject {
         this.totalPlaces = totalPlaces;
     }
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "trip")
     public List<Booking> getBookings() {
-        if (bookings == null) {
-            bookings = new ArrayList<Booking>();
-        }
-        return bookings;
+        return this.bookings;
     }
 
     public void setBookings(List<Booking> bookings) {
@@ -102,5 +129,4 @@ public class Trip extends IdentifiedObject {
     public void addBooking(Booking booking) {
         getBookings().add(booking);
     }
-
 }

@@ -1,17 +1,9 @@
 package com.qmino.santorini.service;
 
 import com.qmino.santorini.exception.BookingException;
-import com.qmino.santorini.to.BookingConfirmationTo;
-import com.qmino.santorini.to.BookingRequestTo;
-import com.qmino.santorini.to.TripSummaryTo;
-import com.qmino.santorini.to.TripTo;
+import com.qmino.santorini.to.*;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -27,19 +19,32 @@ import java.util.NoSuchElementException;
  * @author Peter Rigole
  * @since SDK1.6
  */
-@Path("/rest/trips")
+@Path("/rest")
 public interface TripService {
+
+    /**
+     * Retrieve booking information about a given booking.
+     *
+     * @param bookingId The given booking ID.
+     * @return Booking information about the booking with the given ID.
+     * @throws NoSuchElementException There is no booking matching the given ID.
+     * @summary Retrieve booking information about a given booking.
+     */
+    @GET
+    @Path("bookings/{bookingId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    BookingTo getBookingInfo(@PathParam("bookingId") Long bookingId) throws NoSuchElementException;
 
     /**
      * Retrieve all available trips.
      *
-     * @return A list containing the summary data of all available trips.
+     * @return A list containing the name data of all available trips.
      * @summary Retrieve all available trips.
      */
     @GET
-    @Path("/")
+    @Path("trips/")
     @Produces(MediaType.APPLICATION_JSON)
-    List<TripSummaryTo> getAllAvailableTrips();
+    List<TripNameTo> getAllAvailableTrips();
 
     /**
      * Retrieve detailed trip information about a given trip.
@@ -50,9 +55,35 @@ public interface TripService {
      * @summary Retrieve detailed trip information about a given trip.
      */
     @GET
-    @Path("/{tripId}")
+    @Path("trips/{tripId}")
     @Produces(MediaType.APPLICATION_JSON)
     TripTo getTripInfo(@PathParam("tripId") Long tripId) throws NoSuchElementException;
+
+    /**
+     * Retrieve traveler information about a given traveler.
+     *
+     * @param travelerId The given traveler ID.
+     * @return Traveler information about the traveler with the given ID.
+     * @throws NoSuchElementException There is no traveler matching the given ID.
+     * @summary Retrieve traveler information about a given traveler.
+     */
+    @GET
+    @Path("travelers/{travelerId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    TravelerSummaryTo getTravelerInfo(@PathParam("travelerId") Long travelerId) throws NoSuchElementException;
+
+    /**
+     * Retrieve the trips of a given traveler.
+     *
+     * @param travelerId The given traveler ID.
+     * @return The trips of the traveler with the given ID.
+     * @throws NoSuchElementException There is no traveler matching the given ID.
+     * @summary Retrieve the trips of a given traveler.
+     */
+    @GET
+    @Path("travelers/trips/{travelerId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    List<TripSummaryTo> getTravelerTrips(@PathParam("travelerId") Long travelerId) throws NoSuchElementException;
 
     /**
      * Book a trip.
@@ -68,4 +99,30 @@ public interface TripService {
     @Consumes(MediaType.APPLICATION_JSON)
     BookingConfirmationTo bookTrip(BookingRequestTo bookingRequestTo) throws BookingException;
 
+    /**
+     * Update a booking.
+     *
+     * @param bookingId The given booking ID.
+     *        bookingTo The booking information.
+     * @return The booking confirmation data.
+     * @throws BookingException The requested booking could not be updated.
+     * @summary Update a booking.
+     */
+    @PUT
+    @Path("/book/{bookingId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    BookingConfirmationTo updateBooking(@PathParam("bookingId") Long bookingId, BookingTo bookingTo) throws BookingException;
+
+    /**
+     * Retrieve statistics.
+     *
+     * @param numberMostPopular The how many most popular trips?
+     * @return Statistics information.
+     * @summary Retrieve statistics information.
+     */
+    @GET
+    @Path("/statistics/{numberMostPopular}")
+    @Produces(MediaType.APPLICATION_JSON)
+    StatisticsTo getStatistics(@PathParam("numberMostPopular") int numberMostPopular);
 }
