@@ -15,6 +15,7 @@ import java.util.Date;
  */
 public class TripTo {
 
+    private Long Id;
     private String tripName;
     private String tripSummary;
     private String tripDescription;
@@ -23,6 +24,14 @@ public class TripTo {
     private Integer availablePlaces;
     private Integer totalPlaces;
     private Double price;
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long Id) {
+        this.Id = Id;
+    }
 
     public String getTripName() {
         return tripName;
